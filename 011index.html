@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Practice</title>
+    <style>
+        /* Додайте стилі за бажанням */
+        .highlight {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Елементи на сторінці -->
+    <div id="myDiv" class="highlight">Це DIV з ідентифікатором та класом</div>
+    <p>Це параграф</p>
+    <ul>
+        <li>Елемент списку 1</li>
+        <li>Елемент списку 2</li>
+        <li>Елемент списку 3</li>
+    </ul>
+    <a href="#" id="myLink">Це посилання</a>
+
+    <script>
+        // Вибір елементу за ідентифікатором та зміна стилів та тексту
+        var myDiv = document.getElementById("myDiv");
+        myDiv.style.backgroundColor = "lightblue";
+        myDiv.innerHTML = "Змінений текст";
+
+        // Вибір елементів за класом та зміна їх стилів
+        var highlightedElements = document.getElementsByClassName("highlight");
+        for (var i = 0; i < highlightedElements.length; i++) {
+            highlightedElements[i].style.fontSize = "20px";
+        }
+
+        // Навігація по документу
+        var myLink = document.getElementById("myLink");
+        var parentOfLink = myLink.parentNode; // Доступ до батьківського елемента
+        var listItems = myLink.parentNode.getElementsByTagName("li"); // Дочірні елементи за тегом
+
+        // Зміна атрибутів елемента
+        myLink.setAttribute("href", "https://www.example.com");
+
+        // Додавання обробника подій для кліку на посиланні
+        myLink.addEventListener("click", function(event) {
+            event.preventDefault(); // Зупинити звичайну дію посилання
+            alert("Ви клікнули на посилання!");
+        });
+    </script>
+
+</body>
+</html>
